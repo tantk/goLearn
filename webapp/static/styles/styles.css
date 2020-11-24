@@ -1,0 +1,175 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body{
+	font-family: 'Lato', 'sans-serif';
+}
+a{
+  text-decoration: none;
+}
+header{
+	padding: 4em 10%;
+}
+
+header{
+	background-color: #077ABC;
+  color: white;
+  text-align: center;
+}
+header 	p{
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255,255,255,.9);
+   letter-spacing: .05em;
+   margin-bottom: 10px;
+}
+
+header h3 a{
+  color: #32CCFE;
+}
+
+header h3 a:hover{
+  color: white;
+}
+
+header h1{
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+header h1 i{
+  color: darken(#32CCFE, 10%);
+}
+header h1 span{
+  font-weight:300;
+}
+
+
+form {
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+textarea{
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 85%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#menu li {
+  float: left;
+}
+
+#menu li div {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#menu li a:hover {
+  background-color: #111;
+}
+
+#Table {
+  border-collapse: collapse; 
+  width: 100%; 
+  border: 1px solid #ddd; 
+  font-size: 18px; 
+}
+
+#Table th, #Table td {
+  text-align: left; 
+  padding: 12px; 
+}
+
+#Table tr {
+ 
+  border-bottom: 1px solid #ddd;
+}
+
+#Table tr.header, #Table tr:hover {
+  
+  background-color: #f1f1f1;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid grey;
+  padding: 10px;
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}

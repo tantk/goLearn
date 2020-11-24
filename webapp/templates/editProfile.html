@@ -1,0 +1,31 @@
+{{template "header"}}
+
+<body>
+{{template "top"}}
+{{if .User}}
+    {{template "menu" .User}}
+{{else}}
+    {{template "menu"}}
+{{end}}
+<h1>User Detailed Information</h1>
+{{if .User.First}}
+<div class="center">
+    <form method="post">
+        <table id ="Table">
+            <br>
+            <h2>Edit User details</h2>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="firstname" placeholder="{{.User.First}}"></td>      
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lastname" placeholder="{{.User.Last}}"></td>      
+            </tr>
+        </table>
+        <br>
+        <input type="submit">
+    </form>
+</div>
+{{end}}
+{{template "footer"}}

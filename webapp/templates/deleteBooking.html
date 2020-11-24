@@ -1,0 +1,45 @@
+{{template "header"}}
+
+<body>
+    
+{{template "top"}}
+{{template "menu" .User}}
+<h2>Delete booking</h2>
+
+
+<div class="center">
+    
+    <form method="post">
+        <table id ="Table">
+            <br>
+            <h2>Booking details</h2>
+            <tr>
+                <td>Booking ID </td>
+                <td><input type="text" name="IDBook" value="{{.Booking.IDBook}}" readonly="readonly" /> </td>      
+            </tr>
+            <tr>
+                <td>Username </td>
+                <td><label name ="username">{{.Booking.User}}</label></td>      
+            </tr>
+            <tr>
+                <td>Venue Name</td>
+                <td><label name ="date">{{.Booking.VenueName}}</label></td>      
+            </tr>
+            <tr>
+                <td>Date(YYMMDD)</td>
+                <td><label name ="date">{{.Booking.Date}}</label></td>      
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><label name ="time">{{.Booking.Time}}</label><br></td>      
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+</body>
+
+{{template "footer"}}

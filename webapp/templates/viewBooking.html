@@ -1,0 +1,46 @@
+{{template "header"}}
+
+<body>
+    
+<h1>Venue booking system</h1>
+{{template "top"}}
+{{if .User}}
+    {{template "menu" .User}}
+{{else}}
+    {{template "menu"}}
+{{end}}
+
+<h2>View Bookings</h2>
+{{range $venueName := .Order}}
+    {{$venue := index $.Venues $venueName}}
+    <h2>Name: {{$venue.Name}}</h2>
+    <h3>Kind: {{$venue.Kind}}</h3>
+    <h3>Location: {{$venue.Location}}</h3>
+    <h3>Capacity: {{$venue.Capacity}}</h3>
+    <table id ="Table">
+        <tr class="header">
+            <th style="width:20%;">Booking ID</th>
+            <th style="width:20%;">Username</th>
+            <th style="width:20%;">Venue Name</th>
+            <th style="width:15%;">Date(YYMMDD)</th>
+            <th style="width:15%;">Time</th>
+            <th style="width:10%;">Action</th>
+        </tr>
+        {{$bookings := index $.BkData $venueName}}
+        {{ range $booking := $bookings}}
+        <tr>
+            <td>{{$booking.IDBook}}</td>
+            <td>{{$booking.User}}</td>
+            <td>{{$booking.VenueName}}</td>
+            <td>{{$booking.Date}}</td>
+            <td>{{$booking.Time}}</td>
+            <td><a href="/deleteBook?bID={{$booking.IDBook}}">Cancel Booking</a></td>
+        </tr>
+        {{end}}
+    
+    </table>
+{{end}}
+
+</body>
+
+{{template "footer"}}

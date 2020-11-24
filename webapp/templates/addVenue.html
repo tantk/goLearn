@@ -1,0 +1,53 @@
+{{template "header"}}
+<body>
+{{template "top"}}
+{{if .User}}
+    {{template "menu" .User}}
+{{else}}
+    {{template "menu"}}
+{{end}}
+<div class="center">
+    <h1>Add Venue</h1>
+    <form method="post">
+        <label for ="name">Venue Name:</label>
+        <input type="text" name="name" placeholder="Venue Name"><br>
+        <label for="kind">Type of venue:</label>
+        <input list="kind" name="kind">
+        <datalist id="kind" >
+            <option value="Stadium">Stadium</option>
+            <option value="Hall">Hall</option>
+            <option value="Room">Room</option>
+            <option value="Lecture Theatre">Lecture Theatre</option>
+        </datalist>
+        <br>
+        <label for="location">Location of venue:</label>
+        <select id="location" name="location">
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+            <option value="Central">Central</option>
+            <option value="Others">Others</option>
+        </select>
+        
+        <div class="slidecontainer">
+            <p>Capacity: <span id="capacityDisplay"></span></p>
+            <input type="range" min="1" max="99999" value="10" class="slider" name="capacity" id="capacity">
+        </div>
+
+        <label for="desc">Description of venue:</label><br>
+        <textarea id="desc" name="desc"></textarea><br>
+        <input type="submit">
+    </form>
+</div>
+
+<script>
+    var slider = document.getElementById("capacity");
+    var output = document.getElementById("capacityDisplay");
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+</script>
+</body>
+{{template "footer"}}

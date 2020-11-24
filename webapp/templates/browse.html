@@ -1,0 +1,87 @@
+{{template "header"}}
+
+<body>
+    
+{{template "top"}}
+{{if .User}}
+    {{template "menu" .User}}
+{{else}}
+    {{template "menu"}}
+{{end}}
+
+<div class="center">
+    <h3>Search for venues</h3>
+    <form method="post">
+        <label for="venueKind">Type:</label>
+        <select name="venueKind" id="venueKind">
+        {{ range .Kind }}
+            <option value="{{.}}">{{.}}</option>
+        {{ end }}
+        </select><br>
+        <label for="venueLocation">Location:</label>
+        <select name="venueLocation" id="venueLocation">
+        {{ range .Location }}
+            <option value="{{.}}">{{.}}</option>
+        {{ end }}
+        </select>
+        <div class="slidecontainer">
+            <p>Min Capacity: <span id="valueMinCap"></span></p>
+            {{if .SMinCap}}
+                <input type="range" min="{{.MinCap}}" max="{{.MaxCap}}" value="{{.SMinCap}}" class="slider" name="venueMinCap" id="venueMinCap">
+            {{else}}
+                <input type="range" min="{{.MinCap}}" max="{{.MaxCap}}" value="{{.MinCap}}" class="slider" name="venueMinCap" id="venueMinCap">
+            {{end}}
+        </div>
+        <div class="slidecontainer">
+            <p>Max Capacity: <span id="valueMaxCap"></span></p>
+            {{if .SMaxCap}}
+                <input type="range" min="{{.MinCap}}" max="{{.MaxCap}}" value="{{.SMaxCap}}" class="slider" name="venueMaxCap" id="venueMaxCap">
+            {{else}}
+                <input type="range" min="{{.MinCap}}" max="{{.MaxCap}}" value="{{.MaxCap}}" class="slider" name="venueMaxCap" id="venueMaxCap">
+            {{end}}
+        </div>
+        <input type="submit" value="Search">
+    </form>
+</div>
+<br>
+
+<h2>Venues</h2>
+<table id ="Table">
+    <tr class="header">
+        <th style="width:20%;">Name</th>
+        <th style="width:30%;">Description</th>
+        <th style="width:15%;">Kind</th>
+        <th style="width:15%;">Location</th>
+        <th style="width:10%;">Capacity</th>
+        <th style="width:10%;">Book</th>
+    </tr>
+    {{ range $key, $value := .Venues}}
+    <tr>
+        <td>{{$value.Name}}</td>
+        <td>{{$value.Desc}}</td>
+        <td>{{$value.Kind}}</td>
+        <td>{{$value.Location}}</td>
+        <td>{{$value.Capacity}}</td>
+        <td><a href="/book?venueId={{$key}}">Book</a></td>
+    </tr>
+    {{end}}
+
+</table>
+
+<script>
+    var slider1 = document.getElementById("venueMinCap");
+    var output1 = document.getElementById("valueMinCap");
+    var slider2 = document.getElementById("venueMaxCap");
+    var output2 = document.getElementById("valueMaxCap");
+    output1.innerHTML = slider1.value;
+    output2.innerHTML = slider2.value;
+    slider1.oninput = function() {
+      output1.innerHTML = this.value;
+    }
+    slider2.oninput = function() {
+      output2.innerHTML = this.value;
+    }
+    </script>
+</body>
+
+{{template "footer"}}

@@ -1,0 +1,45 @@
+{{template "header"}}
+<body>
+{{template "top"}}
+{{template "menu" .User}}
+{{$vID := .Vid}}
+<div>
+    <h2>Name: {{.Venue.Name}}</h2>
+    <h3>Kind: {{.Venue.Kind}}</h3>
+    <h3>Location: {{.Venue.Location}}</h3>
+    <h3>Capacity: {{.Venue.Capacity}}</h3>
+    <h3>Description</h3>
+    <p>{{.Venue.Desc}}</p>
+    <table id ="Table">
+        <tr class="header">
+            <th style="width:25%;">Date(YYMMDD)</th>
+            <th style="width:25%;">Morning</th>
+            <th style="width:25%;">Afternoon</th>
+            <th style="width:25%;">Evening</th>
+        </tr>
+        {{ range $date := .Order }}
+        <tr>
+            <td>{{$date}}</td>
+            {{$morning := index $.Avail $date 1}}
+            {{$afternoon := index $.Avail $date 2}}
+            {{$evening := index $.Avail $date 3}}
+            {{ if eq $morning "AVAILABLE"}}
+                <td><a href="/confirmBook?venueId={{$vID}}&date={{$date}}&time=1">{{$morning}}</a></td>
+            {{ else }}
+                <td>{{$morning}}</td>
+            {{ end }}
+            {{ if eq $afternoon "AVAILABLE"}}
+                <td><a href="/confirmBook?venueId={{$vID}}&date={{$date}}&time=2">{{$afternoon}}</a></td>
+            {{ else }}
+                <td>{{$afternoon}}</td>
+            {{ end }}
+            {{ if eq $evening "AVAILABLE"}}
+                <td><a href="/confirmBook?venueId={{$vID}}&date={{$date}}&time=3">{{$evening}}</a></td>
+            {{ else }}
+                <td>{{$evening}}</td>
+            {{ end }}
+        </tr>
+        {{end}}
+    </table>
+</div>
+{{template "footer"}}

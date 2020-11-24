@@ -1,0 +1,41 @@
+{{template "header"}}
+
+<body>
+    
+{{template "top"}}
+{{template "menu" .User}}
+<h2>Confirm your booking</h2>
+
+
+<div class="center">
+    
+    <form method="post">
+        <table id ="Table">
+            <br>
+            <h2>Booking details</h2>
+            <tr>
+                <td>Venue Name </td>
+                <td><label name ="venueName">{{.Venue.Name}}</label></td>      
+            </tr>
+            <tr>
+                <td>Username </td>
+                <td><label name ="username">{{.User.Username}}</label></td>      
+            </tr>
+            <tr>
+                <td>Date(YYMMDD) </td>
+                <td><label name ="date">{{.Date}}</label></td>      
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><label name ="time">{{.Time}}</label><br></td>      
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+</body>
+
+{{template "footer"}}

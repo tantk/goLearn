@@ -1,0 +1,39 @@
+{{template "header"}}
+<body>
+{{template "top"}}
+{{if .User}}
+    {{template "menu" .User}}
+{{else}}
+    {{template "menu"}}
+{{end}}
+
+{{if .User.First}}
+<br>
+<div class="center">
+    <table id ="Table">
+        <br>
+        <h2>User details</h2>
+        <tr>
+            <td>Username</td>
+            <td>{{.User.Username}}</td>      
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>{{.User.Password}}</td>      
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>{{.User.First}}</td>      
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{.User.Last}}</td>      
+        </tr>
+    </table>
+    <br>
+    <a href="/editProfile" class="button">Edit profile</a>
+    <span> </span>
+    <a href="/editPassword" class="button">Change password</a>
+</div>
+{{end}}
+{{template "footer"}}

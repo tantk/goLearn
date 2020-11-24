@@ -1,0 +1,21 @@
+{{define "menu"}}
+<div id="menu">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/browse">Browse Venue</a></li>
+        {{if .First}}
+            <li><a href="/viewBook">View Booking</a> </li>
+                {{ if eq .Username "admin"}}
+                    <li><a href="/addVenue">Add Venue</a> </li>
+                {{end}}
+            <li><a>Signed in as {{.Username}}</a> </li>
+            <li><a href="/profile">Profile</a> </li>
+            <li><a href="/logout">Sign out</a></li>
+        {{else}}
+            <li><a href="/signup">Sign up</a></li>
+            <li><a href="/login">Log in</a></li>
+        {{end}}
+    </ul>
+</div>
+<br>
+{{end}}
