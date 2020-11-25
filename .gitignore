@@ -3,4 +3,4 @@
 *.odt
 *.idea*
 vendor/
-*/main
+*main
