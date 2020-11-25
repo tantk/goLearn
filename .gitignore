@@ -1,4 +1,6 @@
 *gia
 *backup.zip
-*report.odt
+*.odt
 *.idea*
+vendor/
+*/main
